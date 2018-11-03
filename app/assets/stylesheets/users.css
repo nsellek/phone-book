@@ -1,0 +1,16 @@
+#search div{
+  float: left;
+}
+
+.clear {
+  clear: both;
+}
+
+.search_field {
+  padding-left: 10px
+}
+
+.search_field_btn {
+  padding-left: 10px;
+  padding-top: 20px
+}

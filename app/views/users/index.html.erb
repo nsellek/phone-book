@@ -3,8 +3,24 @@
 <h1>Users</h1>
 
 <div id="search">
-  
+  <div class="search_field">
+    <%= label_tag :first_name %>
+    <%= text_field_tag :first_name %>
+  </div>
+  <div class="search_field">
+    <%= label_tag :last_name %>
+    <%= text_field_tag :last_name %>
+  </div>
+  <div class="search_field">
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+  </div>
+  <div class="search_field_btn">
+    <%= button_tag :search, id: 'search_btn'%>
+  </div>
 </div>
+
+<br class="clear">
 
 <table>
   <thead>
@@ -17,8 +33,8 @@
     </tr>
   </thead>
 
-  <tbody>
-   <%= render 'list', users: @users %>
+  <tbody id="users_list">
+    <%= render 'list', users: @users %>
   </tbody>
 </table>
 
