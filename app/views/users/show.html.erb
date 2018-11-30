@@ -1,24 +1,32 @@
 <p id="notice"><%= notice %></p>
+<div style="width: 50%">
+  <div class="container with-title">
+    <span class="title">Showing User:</span>
+    <div style="width: 50%">
+      <div class="field">
+        <strong>First name:</strong>
+        <span class="input"><%= @user.first_name %></span>
+      </div>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+      <div class="field">
+        <strong>Last name:</strong>
+        <span class="input"><%= @user.last_name %></span>
+      </div>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+      <div class="field">
+        <strong>Phone:</strong>
+        <span class="input"><%= @user.phone %></span>
+      </div>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @user.phone %>
-</p>
+      <div class="field">
+        <strong>Email:</strong>
+        <span class="input"><%= @user.email %></span>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <div class="container">
+    <%= link_to 'Edit', edit_user_path(@user), class: 'btn is-warning' %>
+    <%= link_to 'Back', users_path, class: 'btn' %>
+  </div>
+</div>

@@ -1,6 +1,9 @@
-<h1>Editing User</h1>
+<div class="container with-title">
+  <h1 class="title">Editing User</h1>
 
-<%= render 'form', user: @user %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+  <%= render 'form', user: @user %>
+</div>
+<div class="container">
+  <%= link_to 'Show', @user, class: 'btn is-warning' %>
+  <%= link_to 'Back', users_path, class: 'btn' %>
+</div>
