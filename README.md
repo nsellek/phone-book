@@ -1,24 +1,26 @@
-# README
+# Phone Book #
+A collaborative project for wyncode Rails breakouts
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Ruby Version ###
+- Uses `2.5.0` Change version in `Gemfile` if needed
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Getting Stated ##
+### Install dependencies: ###
+- Run
+```bash
+bundle install
+```
+### Building Database ###
+- Run
+```bash
+bundle exec rake db:setup
+```
+or
+```bash
+bundle exec rails db:setup
+```
+### Running App ###
+- Run
+```bash
+bundle exec rails s
+```
