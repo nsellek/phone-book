@@ -2,12 +2,20 @@
   float: left;
 }
 
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
 .clear {
   clear: both;
 }
 
 .search_field {
-  padding-left: 10px
+  padding-left: 10px;
+  width: 25%;
 }
 
 .search_field_btn {

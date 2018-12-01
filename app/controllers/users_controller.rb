@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_states, only: %i[ new edit index ]
 
   # GET /users
   # GET /users.json
@@ -71,16 +72,23 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
+    def set_states
+      @states = State.options
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :phone, :email)
+      params.require(:user).permit(:first_name, :last_name, :phone, :email, :state_id)
     end
 
     def search_params
-      params.permit(:first_name, :last_name, :email).select{ |_, v| v.present?}
+      params.permit(:first_name, :last_name, :email, :state_id).select{ |_, v| v.present?}
     end
 
     def search_present?
-      params[:first_name].present? || params[:last_name].present? ||  params[:email].present?
+      params[:first_name].present? ||
+      params[:last_name].present? ||
+      params[:email].present? ||
+      params[:state_id].present?
     end
 end

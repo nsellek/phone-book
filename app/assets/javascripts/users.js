@@ -20,7 +20,8 @@ function handleSearch(){
       data: {
         first_name: $('#first_name').val(),
         last_name: $('#last_name').val(),
-        email: $('#email').val()
+        email: $('#email').val(),
+        state_id: $('#state_id').val()
       }
     });
   });

@@ -5,15 +5,19 @@
   <div id="search">
     <div class="search_field field">
       <%= label_tag :first_name %>
-      <%= text_field_tag :first_name, nil, class: 'input' %>
+      <%= text_field_tag :first_name, nil, class: 'input', style: 'width: 80%' %>
     </div>
     <div class="search_field field">
       <%= label_tag :last_name %>
-      <%= text_field_tag :last_name, nil, class: 'input' %>
+      <%= text_field_tag :last_name, nil, class: 'input', style: 'width: 80%' %>
     </div>
     <div class="search_field field">
       <%= label_tag :email %>
-      <%= text_field_tag :email, nil, class: 'input' %>
+      <%= text_field_tag :email, nil, class: 'input', style: 'width: 80%' %>
+    </div>
+    <div class="search_field field">
+      <%= label_tag :state %>
+      <%= select_tag :state_id, options_for_select(@states), prompt: 'Select', class: 'input' %>
     </div>
     <div class="search_field_btn">
       <%= button_tag :search, id: 'search_btn', class: 'btn is-success' %>
@@ -22,13 +26,14 @@
 
   <br class="clear">
 
-  <table>
+  <table class="table is-bordered is-centered" style="margin: 15px 4px 5px 4px;">
     <thead>
       <tr>
         <th style="padding-right: 10px">First name</th>
         <th style="padding-right: 10px">Last name</th>
         <th style="padding-right: 10px">Phone</th>
-        <th>Email</th>
+        <th style="padding-right: 10px">Email</th>
+        <th>State</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -39,6 +44,8 @@
   </table>
 
   <br>
-
-  <%= link_to 'New User', new_user_path, class: 'btn is-primary' %>
+  <div>
+    <%= link_to 'New User', new_user_path, class: 'btn is-primary' %>
+    <%= link_to 'New State', new_state_path, class: 'btn is-warning' %>
+  </div>
 </div>

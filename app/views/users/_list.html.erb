@@ -3,8 +3,9 @@
     <tr>
       <td><%= user.first_name %></td>
       <td><%= user.last_name %></td>
-      <td><%= user.phone %></td>
-      <td><%= user.email %></td>
+      <td><%= number_to_phone(user.phone) %></td>
+      <td><%= user.email.truncate(10) %></td>
+      <td><%= user.state&.name %></td>
       <td><%= link_to 'Show', user, class: 'btn is-primary' %></td>
       <td><%= link_to 'Edit', edit_user_path(user), class: 'btn is-warning' %></td>
       <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn is-error' %></td>

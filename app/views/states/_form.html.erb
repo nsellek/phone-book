@@ -1,0 +1,9 @@
+<%= form_for state do |f| %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'input' %>
+  </div>
+
+  <button type="submit" name="commit" class="btn is-success">Submit</button>
+<% end %>
