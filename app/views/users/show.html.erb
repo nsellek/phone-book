@@ -5,22 +5,27 @@
     <div style="width: 50%">
       <div class="field">
         <strong>First name:</strong>
-        <span class="input"><%= @user.first_name %></span>
+        <%= text_field_tag :state, @user.first_name, class: 'input', disabled: true %>
       </div>
 
       <div class="field">
         <strong>Last name:</strong>
-        <span class="input"><%= @user.last_name %></span>
+        <%= text_field_tag :state, @user.last_name, class: 'input', disabled: true %>
       </div>
 
       <div class="field">
         <strong>Phone:</strong>
-        <span class="input"><%= @user.phone %></span>
+        <%= text_field_tag :state, @user.phone, class: 'input', disabled: true %>
       </div>
 
       <div class="field">
         <strong>Email:</strong>
-        <span class="input"><%= @user.email %></span>
+        <%= text_field_tag :state, @user.email, class: 'input', disabled: true %>
+      </div>
+      <div class="field">
+        <strong>State:</strong>
+        <%= text_field_tag :state, @user.state&.name, class: 'input', disabled: true %>
+<!--        <span class="input"><%#= @user.state&.name %></span>-->
       </div>
     </div>
   </div>

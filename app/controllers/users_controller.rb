@@ -5,17 +5,16 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    if search_present?
-      @users = User.where(search_params)
-    else
-      @users = User.all
-    end
+    @users = if search_present?
+               User.where(search_params)
+             else
+               User.all
+             end
   end
 
   # GET /users/1
   # GET /users/1.json
-  def show
-  end
+  def show; end
 
   # GET /users/new
   def new
@@ -23,13 +22,13 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    user = user_params.merge(state_id: State.find_by(name: params[:state]))
+    @user = User.new(user)
 
     respond_to do |format|
       if @user.save
@@ -45,8 +44,10 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    # byebug
+    user = user_params.merge(state_id: State.find_by(name: params[:user][:state]).id)
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.update!(user)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -67,28 +68,29 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    def set_states
-      @states = State.options
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:first_name, :last_name, :phone, :email, :state_id)
-    end
+  def set_states
+    @states = State.options
+  end
 
-    def search_params
-      params.permit(:first_name, :last_name, :email, :state_id).select{ |_, v| v.present?}
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :phone, :email).to_h
+  end
 
-    def search_present?
-      params[:first_name].present? ||
+  def search_params
+    params.permit(:first_name, :last_name, :email, :state).select { |_, v| v.present? }
+  end
+
+  def search_present?
+    params[:first_name].present? ||
       params[:last_name].present? ||
       params[:email].present? ||
-      params[:state_id].present?
-    end
+      params[:state].present?
+  end
 end

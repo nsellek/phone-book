@@ -2,27 +2,7 @@
 <div class="container with-title">
   <h1 class="title">Users</h1>
 
-  <div id="search">
-    <div class="search_field field">
-      <%= label_tag :first_name %>
-      <%= text_field_tag :first_name, nil, class: 'input', style: 'width: 80%' %>
-    </div>
-    <div class="search_field field">
-      <%= label_tag :last_name %>
-      <%= text_field_tag :last_name, nil, class: 'input', style: 'width: 80%' %>
-    </div>
-    <div class="search_field field">
-      <%= label_tag :email %>
-      <%= text_field_tag :email, nil, class: 'input', style: 'width: 80%' %>
-    </div>
-    <div class="search_field field">
-      <%= label_tag :state %>
-      <%= select_tag :state_id, options_for_select(@states), prompt: 'Select', class: 'input' %>
-    </div>
-    <div class="search_field_btn">
-      <%= button_tag :search, id: 'search_btn', class: 'btn is-success' %>
-    </div>
-  </div>
+  <%= render 'search' %>
 
   <br class="clear">
 

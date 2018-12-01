@@ -33,7 +33,12 @@
 
   <div class="field">
     <%= form.label :state %>
-    <%= form.select :state_id, options_for_select(@states), prompt: 'Select One', class: 'input' %>
+    <%= form.text_field :state, class: 'input', list: 'states', value: user.state&.name %>
+    <datalist id="states">
+      <% @states.each do |state| %>
+        <option value="<%= state.name %>">
+      <% end %>
+    </datalist>
   </div>
 
   <button type="submit" name="commit" class="btn is-success">Submit</button>

@@ -1,0 +1,26 @@
+<div id="search">
+  <div class="search_field field">
+    <%= label_tag :first_name %>
+    <%= text_field_tag :first_name, nil, class: 'input', style: 'width: 80%' %>
+  </div>
+  <div class="search_field field">
+    <%= label_tag :last_name %>
+    <%= text_field_tag :last_name, nil, class: 'input', style: 'width: 80%' %>
+  </div>
+  <div class="search_field field">
+    <%= label_tag :email %>
+    <%= text_field_tag :email, nil, class: 'input', style: 'width: 80%' %>
+  </div>
+  <div class="search_field field">
+    <%= label_tag :state %>
+    <%= text_field_tag :state, nil, class: 'input', style: 'width: 80%', list: 'states' %>
+    <datalist id="states">
+      <% @states.each do |state| %>
+        <option value="<%= state.name %>">
+      <% end %>
+    </datalist>
+  </div>
+  <div class="search_field_btn">
+    <%= button_tag :search, id: 'search_btn', class: 'btn is-success' %>
+  </div>
+</div>

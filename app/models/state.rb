@@ -1,6 +1,6 @@
 class State < ApplicationRecord
 
   def self.options
-    all.order(:name).pluck(:name, :id)
+    @_options ||= all.order(:name)
   end
 end
